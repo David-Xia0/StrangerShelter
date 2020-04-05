@@ -3,12 +3,18 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 
+import Navbar from "./components/navbar.component";
+import Homepage from "./components/homepage.component"
+import CreateUser from "./components/create-user.component"
 
 function App() {
   return (
-    <div className="container">
-      Hello World!
-    </div>
+    <Router>
+      <Navbar />
+      <br/>
+      <Route path="/" exact component={Homepage} />
+      <Route path="/user" component={CreateUser} />
+    </Router>
   );
 }
 
