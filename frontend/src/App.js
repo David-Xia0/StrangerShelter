@@ -10,10 +10,12 @@ import CreateUser from "./components/create-user.component"
 function App() {
   return (
     <Router>
-      <Navbar />
-      <br/>
-      <Route path="/" exact component={Homepage} />
-      <Route path="/user" component={CreateUser} />
+      <div className="container">
+        <Navbar />
+        <br/>
+        <Route path="/" exact component={Homepage} />
+        <Route path="/user" component={CreateUser} />
+      </div>
     </Router>
   );
 }
