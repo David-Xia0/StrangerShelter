@@ -18,15 +18,21 @@ export default function EnterChatRoom() {
               <input placeholder="Name" className="joinInput mt-20" type="text" onChange={(event) => setName(event.target.value)} />
             </div>
 
-            <Link onClick={e => (!name || !room) ? e.preventDefault() : null} to={`/chat?name=${name}&room=${room}`}>
+            <Link onClick={e => (!name) ? e.preventDefault() : null} to={`/chatpage?name=${name}`}>
               <button className={'button mt-20'} type="submit">connect</button>
+            </Link>
+
+            <h1 className="rulesText"> By using our service you agree with to our terms of service and privacey policy</h1>
+            <Link to={`/TOS`} target="_blank" >
+              <h1 className="termsOfService"> TOS and PP</h1>
             </Link>
          </div>
           <div className="rulesBox">
             <h1 className="heading"> Rules:  </h1> 
-            <h1 className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;Cuties only </h1> 
-            <h1 className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;Ur mom Gay </h1> 
-            <h1 className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;hi </h1> 
+            <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;No racism, homophobia, sexism.</li> 
+            <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;No catfishing, scaming, phishing.</li> 
+            <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;Be nice to everyone and welcome all strangers.</li> 
+            <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;please choose an aporpriate name.</li> 
           </div>
         </div>
     </div>
