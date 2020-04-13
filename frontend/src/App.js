@@ -7,14 +7,18 @@ import Navbar from "./components/navbar.component";
 import Homepage from "./components/homepage.component";
 import CreateUser from "./components/create-user.component";
 import ChatPage from "./components/chatpage/ChatPage";
+import JoinPage from "./components/joinpage/JoinPage";
+import TOS from "./components/termsofservice/TOS";
+
 
 function App() {
   return (
     <Router>
       <Navbar />
-        <Route path="/" exact component={Homepage} />
-        <Route path="/user" component={CreateUser} />
         <Route path="/chat" component={ChatPage} />
+        <Route path="/" exact component={JoinPage} />
+        <Route path="/user" component={CreateUser} />
+        <Route path="/TOS" component={TOS}/>
     </Router>
   );
 }
