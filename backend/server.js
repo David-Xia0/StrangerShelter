@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const socketio = require('socket.io');
 const http = require('http');
 
+const { addUser, removeUser, getUser, getUsersInRoom } = require('./src/Users.js');
+
 require('dotenv').config();
 
 const app = express();
@@ -33,8 +35,12 @@ io.on('connection', function(socket){
 
   socket.on('join', ({ name, room }, callback) => {
     console.log("User: " + name + " Joined: " + room);
+    const { error, user } = addUser({ id: socket.id, name, room });
+    
+    if (error) return callback(error);
 
-    //callback({ error: 'error'});
+    socket.join(user.room);
+    
   });
   socket.on('disconnect', function(){
     console.log('user disconnected');
