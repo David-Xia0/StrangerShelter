@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/navbar.component";
 import Homepage from "./components/homepage.component";
 import CreateUser from "./components/create-user.component";
-import Join from "./components/join.component";
+import Join from "./components/Join/Join";
 
 function App() {
   return (
