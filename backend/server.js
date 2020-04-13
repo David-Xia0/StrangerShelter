@@ -31,6 +31,12 @@ app.use('/chats', chatRouter);
 
 io.on('connection', function(socket){
   console.log('a user connected');
+
+  socket.on('join', ({ name, room }, callback) => {
+    console.log(name, room);
+
+    //callback();
+  });
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });
