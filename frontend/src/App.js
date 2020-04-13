@@ -11,13 +11,10 @@ import ChatPage from "./components/chatpage/ChatPage";
 function App() {
   return (
     <Router>
-      <div className="container">
-        <Navbar />
-        <br/>
+      <Navbar />
         <Route path="/" exact component={Homepage} />
         <Route path="/user" component={CreateUser} />
         <Route path="/chat" component={ChatPage} />
-      </div> 
     </Router>
   );
 }
