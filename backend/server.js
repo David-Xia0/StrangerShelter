@@ -30,10 +30,9 @@ app.use('/users', usersRouter);
 app.use('/chats', chatRouter);
 
 io.on('connection', function(socket){
-  console.log('a user connected');
 
   socket.on('join', ({ name, room }, callback) => {
-    console.log(name, room);
+    console.log("User: " + name + " Joined: " + room);
 
     //callback({ error: 'error'});
   });
