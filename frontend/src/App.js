@@ -6,16 +6,13 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import Navbar from "./components/navbar.component";
 import Homepage from "./components/homepage.component"
 import CreateUser from "./components/create-user.component"
+import JoinPage from "./components/joinpage/JoinPage"
 
 function App() {
   return (
     <Router>
-      <div className="container">
-        <Navbar />
-        <br/>
-        <Route path="/" exact component={Homepage} />
+        <Route path="/" exact component={JoinPage} />
         <Route path="/user" component={CreateUser} />
-      </div>
     </Router>
   );
 }
