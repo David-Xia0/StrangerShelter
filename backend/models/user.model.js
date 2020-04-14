@@ -6,16 +6,26 @@ const userSchema = new Schema({
   username: {
     type: String,
     required: true,
-    unique: true,
-    trim: true,
+    unique: false,
+    trim: false,
     minlength: 3
   },
   password: {
     type: String,
-    required: true,
+    required: false,
     unique: false,
     trim: false,
     minlength: 7
+  },
+  ipv4: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  chatID: {
+    type: String,
+    required: false,
+    unique: false,
   },
 }, {
   timestamps: true,

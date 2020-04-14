@@ -10,9 +10,10 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
   const username = req.body.username;
-  const password = req.body.password;
+  const ipv4 = req.body.ipv4;
+  const chatID = req.body.chatID;
 
-  const newUser = new User({username, password});
+  const newUser = new User({username, ipv4, chatID});
 
   newUser.save()
     .then(() => res.json('User added!'))
@@ -25,9 +26,15 @@ router.route('/:id').get((req, res) => {
       .catch(err => res.status(400).json('Error: ' + err));
   });
   
-  router.route('/:id').delete((req, res) => {
-    User.findByIdAndDelete(req.params.id)
+  router.route('/delete/:id').delete((req, res) => {
+    User.findOneAndDelete({'username': req.params.id })
       .then(() => res.json('User deleted.'))
+      .catch(err => res.status(400).json('Error: ' + err));
+  });
+
+  router.route('/deleteByChat/:id').delete((req, res) => {
+    User.deleteMany({'chatID': req.params.id })
+      .then(() => res.json('Users in chat deleted.'))
       .catch(err => res.status(400).json('Error: ' + err));
   });
 
