@@ -6,14 +6,13 @@ const statisticSchema = new Schema({
   name: {
     type: String,
     required: true,
-    unique: true,
-   
+    unique: true
   },
   value: {
     type: Number,
     required: true,
     unique: false,
-    trim: false,
+    trim: false
   }
 }, {
   timestamps: true,

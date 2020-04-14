@@ -31,7 +31,7 @@ router.route('/').get((req, res) => {
       .catch(err => res.status(400).json('Error: ' + err));
   });
 
-  router.route('/update/:id').post((req, res) => {
+  router.route('/delete/:id').delete((req, res) => {
     Statistic.findOneAndDelete( {'name': req.params.id})
           .then(() => res.json('stat updated!'))
           .catch(err => res.status(400).json('Error: ' + err));
