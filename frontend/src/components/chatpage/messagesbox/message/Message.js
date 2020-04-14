@@ -7,13 +7,18 @@ import ReactEmoji from 'react-emoji';
 const Message = ({ message: { text, user }, name }) => {
   let isSentByCurrentUser = false;
 
-  const trimmedName = name.trim().toLowerCase();
+  //const trimmedName = name.trim().toLowerCase();
 
+  /*
   if(user === trimmedName) {
     isSentByCurrentUser = true;
   }
-
+*/
   return (
+    <div>
+      <p className="messageText colorWhite">{ReactEmoji.emojify(text)}</p>
+    </div>
+    /*
     isSentByCurrentUser
       ? (
         <div className="messageContainer justifyEnd">
@@ -30,7 +35,9 @@ const Message = ({ message: { text, user }, name }) => {
             </div>
             <p className="sentText pl-10 ">{user}</p>
           </div>
+          
         )
+        */
   );
 }
 export default Message;
