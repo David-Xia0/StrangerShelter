@@ -23,6 +23,13 @@ connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
 
+io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+});
+
 const usersRouter = require('./routes/users');
 
 app.use('/users', usersRouter);
