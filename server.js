@@ -18,6 +18,7 @@ app.use(express.json());
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
 );
+
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
@@ -25,6 +26,13 @@ connection.once('open', () => {
 
 io.on('connection', function(socket){
   console.log('a user connected');
+
+  socket.on('sendMessage', (message, callback) => {
+    console.log(message);
+
+    callback();
+  });
+
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });
