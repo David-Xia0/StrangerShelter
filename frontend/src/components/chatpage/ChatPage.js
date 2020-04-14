@@ -23,8 +23,8 @@ const ChatPage = () => {
     }
 
     return (
-        <div className="outerContainer">
-        <div className="container">
+        <div className="chatOuterContainer">
+        <div className="chatContainer">
             <InfoBar room={room} />
             <MessagesBox messages={messages} name={name} />
             <MessageInput message={message} setMessage={setMessage} sendMessage={sendMessage} />

@@ -1,19 +1,20 @@
-.outerContainer {
+.chatOuterContainer {
+  padding-bottom: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(49, 51, 70);
+    background-color:rgb(32, 32, 36);
   }
   
-  .container {
+  .chatContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: #FFFFFF;
+    background: rgb(32, 32, 36);
     border-radius: 8px;
-    height: 70%;
-    width: 60%;
+    height: 90%;
+    width: 80%;
   }
   
   @media (min-width: 320px) and (max-width: 480px) {
