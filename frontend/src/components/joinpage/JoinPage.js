@@ -18,7 +18,7 @@ export default function EnterChatRoom() {
               <input placeholder="Name" className="joinInput mt-20" type="text" onChange={(event) => setName(event.target.value)} />
             </div>
 
-            <Link onClick={e => (!name) ? e.preventDefault() : null} to={`/chatpage?name=${name}`}>
+            <Link to={`/chat`}>
               <button className={'button mt-20'} type="submit">connect</button>
             </Link>
 
