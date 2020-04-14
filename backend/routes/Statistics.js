@@ -20,7 +20,7 @@ router.route('/').get((req, res) => {
   });
 
   router.route('/update/:id').post((req, res) => {
-    Statistic.findOneAndUpdate( {'name': req.params.id})
+    Statistic.findOneAndUpdate( {name: req.params.id})
       .then(stat=> {
           stat.value = req.body.newValue;
   
@@ -32,7 +32,7 @@ router.route('/').get((req, res) => {
   });
 
   router.route('/delete/:id').delete((req, res) => {
-    Statistic.findOneAndDelete( {'name': req.params.id})
+    Statistic.findOneAndDelete( {name: req.params.id})
           .then(() => res.json('stat updated!'))
           .catch(err => res.status(400).json('Error: ' + err));
 

@@ -27,13 +27,13 @@ router.route('/:id').get((req, res) => {
   });
   
   router.route('/delete/:id').delete((req, res) => {
-    User.findOneAndDelete({'username': req.params.id })
+    User.findOneAndDelete({username: req.params.id })
       .then(() => res.json('User deleted.'))
       .catch(err => res.status(400).json('Error: ' + err));
   });
 
   router.route('/deleteByChat/:id').delete((req, res) => {
-    User.deleteMany({'chatID': req.params.id })
+    User.deleteMany({chatID: req.params.id })
       .then(() => res.json('Users in chat deleted.'))
       .catch(err => res.status(400).json('Error: ' + err));
   });
