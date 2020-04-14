@@ -29,7 +29,8 @@ io.on('connection', function(socket){
 
   socket.on('sendMessage', (message, callback) => {
     console.log(message);
-
+    message = { user: 'admin', text: message};
+    io.emit('message',message);
     callback();
   });
 
