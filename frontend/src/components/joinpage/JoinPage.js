@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 import './JoinPage.css';
 
 export default function EnterChatRoom() {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
+ 
 
   return (
     <div className="joinOuterContainer">
@@ -15,10 +17,12 @@ export default function EnterChatRoom() {
           <div className="joinInnerContainer">
             <h1 className="heading">Please enter a display name below</h1>
             <div>
-              <input placeholder="Name" className="joinInput mt-20" type="text" onChange={(event) => setName(event.target.value)} />
+              <input placeholder="Name" className="joinInput mt-20" type="text" onChange={(event) =>  setName(event.target.value) }/>
             </div>
-
-            <Link to={`/chat`}>
+            <Link onClick = { e => 
+              axios.post("http://localhost:5000/users/add", {username: name, ipv4: "2",chatID: "1"}).then(res => console.log(res.data))
+            } 
+            to={`/chat`}>
               <button className={'button mt-20'} type="submit">connect</button>
             </Link>
 
@@ -38,3 +42,5 @@ export default function EnterChatRoom() {
     </div>
   );
 }
+
+
