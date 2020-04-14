@@ -10,22 +10,15 @@ const userSchema = new Schema({
     trim: false,
     minlength: 3
   },
-  password: {
-    type: String,
-    required: false,
-    unique: false,
-    trim: false,
-    minlength: 7
-  },
   ipv4: {
     type: String,
     required: true,
-    unique: true,
+    unique: false
   },
   chatID: {
     type: String,
     required: false,
-    unique: false,
+    unique: false
   },
 }, {
   timestamps: true,
