@@ -8,7 +8,7 @@ export default function EnterChatRoom() {
   const [name, setName] = useState('');
   //const [room, setRoom] = useState('');
   const room = "DEFAULT"
-  const ENDPOINT = "https://stranger-shelter.herokuapp.com/";
+  const ENDPOINT = "https://stranger-shelter.herokuapp.com";
  
 
   return (
