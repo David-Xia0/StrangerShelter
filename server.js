@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const socketio = require('socket.io');
 const http = require('http');
 
-const { addUser, removeUser, getUser, getUsersInRoom } = require('./src/users');
+const { addUser, removeUser, getUser, getUsersInRoom } = require('./src/Users');
 
 require('dotenv').config();
 
