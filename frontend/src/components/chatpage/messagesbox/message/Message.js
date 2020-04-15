@@ -7,16 +7,16 @@ import ReactEmoji from 'react-emoji';
 const Message = ({ message: { text, user }, name }) => {
   let isSentByCurrentUser = false;
 
-  //const trimmedName = name.trim().toLowerCase();
+  const trimmedName = name.trim().toLowerCase();
 
-  /*
+  
   if(user === trimmedName) {
     isSentByCurrentUser = true;
   }
-*/
+
   return (
     <div>
-      <p className="messageText colorWhite">{ReactEmoji.emojify(text)}</p>
+      <p className="messageText colorWhite">{ReactEmoji.emojify(user + ": " + text)}</p>
     </div>
     /*
     isSentByCurrentUser
