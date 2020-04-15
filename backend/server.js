@@ -40,9 +40,11 @@ io.on('connection', function(socket){
 });
 
 const usersRouter = require('./routes/users');
+const chatsRouter = require('./routes/Chats');
 const statisticsRouter = require('./routes/Statistics');
 
 app.use('/users', usersRouter);
+app.use('/Chats', chatsRouter);
 app.use('/Statistics', statisticsRouter);
 
 server.listen(PORT, () => {
