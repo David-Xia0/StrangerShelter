@@ -24,7 +24,7 @@ export default function EnterChatRoom() {
             <Link onClick = { e =>            
             axios.post(ENDPOINT + "/users/add", {username: name, ipv4: "2",chatID: room}).then(res => console.log(res.data))
             } 
-            to={`/chat?name=${name}&room=${room}}`}>
+            to={`/chat?name=${name}&room=${room}`}>
               <button className={'button mt-20'} type="submit">connect</button>
             </Link>
 
