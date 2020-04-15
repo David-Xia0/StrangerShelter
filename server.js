@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const socketio = require('socket.io');
 const http = require('http');
 
+const { addUser, removeUser, getUser, getUsersInRoom } = require('./src/users');
+
 require('dotenv').config();
 
 const app = express();
@@ -25,17 +27,36 @@ connection.once('open', () => {
 })
 
 io.on('connection', function(socket){
-  console.log('a user connected');
+  socket.on('join', ({ name, room }, callback) => {
+    const { error, user } = addUser({ id: socket.id, name, room });
+
+    if(error) return callback(error);
+
+    socket.join(user.room);
+
+    socket.emit('message', { user: 'admin', text: `${user.name}, welcome to room ${user.room}.`});
+    socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined!` });
+
+    io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
+
+    callback();
+  });
 
   socket.on('sendMessage', (message, callback) => {
-    console.log(message);
-    message = { user: 'admin', text: message};
-    io.emit('message',message);
+    const user = getUser(socket.id);
+
+    io.to(user.room).emit('message', { user: user.name, text: message });
+
     callback();
   });
 
   socket.on('disconnect', function(){
-    console.log('user disconnected');
+    const user = removeUser(socket.id);
+
+    if(user) {
+      io.to(user.room).emit('message', { user: 'Admin', text: `${user.name} has left.` });
+      io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room)});
+    }
   });
 });
 
