@@ -6,6 +6,9 @@
   display: inline-block;
   max-width: 80%;
 }
+.message {
+  border: 2px solid #000000;
+}
 
 .messageText {
   width: 100%;
