@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import logo from '../../icons/shelterNoBackground.png';
 
 import './JoinPage.css';
 
@@ -13,6 +14,7 @@ export default function EnterChatRoom() {
 
   return (
     <div className="joinOuterContainer">
+      <img className ="logo" src={logo}/>
         <h1 className="title">Welcome to the coronavirus shelter!</h1>
         <h1 className="titleDescription"> come talk to new people and make new friends </h1> 
         <div className="joinHorizontalContainer">

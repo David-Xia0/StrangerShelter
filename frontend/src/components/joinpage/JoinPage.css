@@ -77,6 +77,12 @@ html, body {
   width: 100%;
 }
 
+.logo{
+  max-height: 30%;
+  max-width: 50%;
+}
+
+
 .mt-20 {
   margin-top: 20px;
 }
