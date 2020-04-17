@@ -1,11 +1,18 @@
 const router = require('express').Router();
 let Statistic = require('../models/Statistic.model');
 
-router.route('/').get((req, res) => {
+  router.route('/').get((req, res) => {
     Statistic.find()
       .then(statistics => res.json(statistics))
       .catch(err => res.status(400).json('Error: ' + err));
   });
+
+  router.route('/:id').get((req, res) => {
+    Statistic.findOne({name: req.params.id})
+      .then(statistics => res.json(statistics))
+      .catch(err => res.status(400).json('Error: ' + err));
+  });
+
 
 
   router.route('/add').post((req, res) => {
@@ -19,8 +26,8 @@ router.route('/').get((req, res) => {
       .catch(err => res.status(400).json('Error: ' + err));
   });
 
-  router.route('/update/:id').post((req, res) => {
-    Statistic.findOneAndUpdate( {name: req.params.id})
+  router.route('/update').post((req, res) => {
+    Statistic.findOneAndUpdate( {name: req.body.name})
       .then(stat=> {
           stat.value = req.body.newValue;
   
