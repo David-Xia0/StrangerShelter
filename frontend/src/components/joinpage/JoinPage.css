@@ -39,6 +39,8 @@ html, body {
   font-family: 'Roboto', sans-serif;
   padding: 0;
   margin: 0;
+  height: 100%;
+  background: rgb(32, 32, 36);
 }
 
 .heading {
@@ -53,9 +55,11 @@ html, body {
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  height: 100vh;
+  height: 100%;
   align-items: center;
   background-color: rgb(32, 32, 36);
+  
+
 }
 
 .joinInnerContainer {
@@ -88,7 +92,7 @@ html, body {
 }
 
 .rulesBox {
-  width: 30%;
+  width: 600px;
   padding-left: 100px;
   text-align: left;
 }
@@ -115,7 +119,7 @@ html, body {
   color: whitesmoke;
   font-size: 3em;
   padding-top: 1px;
-  padding-bottom: 200px;
+  padding-bottom: 25px;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {

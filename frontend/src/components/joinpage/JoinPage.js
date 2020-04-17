@@ -10,7 +10,12 @@ export default function EnterChatRoom() {
   //const [room, setRoom] = useState('');
   const room = "DEFAULT"
   const ENDPOINT = "http://localhost:5000";
- 
+
+  useEffect(()=>{
+    axios.get(ENDPOINT+"/Statistics/visitors").then(res => axios.post(ENDPOINT + "/Statistics/update", {name: 'visitors', newValue: (res.data.value+1)}).then(res => console.log(res.data)));
+  },[])
+
+
 
   return (
     <div className="joinOuterContainer">
