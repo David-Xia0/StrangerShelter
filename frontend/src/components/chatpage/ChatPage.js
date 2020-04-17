@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import queryString from 'query-string';
 import io from "socket.io-client";
+import logo from '../../icons/shelterNoBackground.png';
+import { Prompt } from 'react-router'
 
 import InfoBar from "./infobar/InfoBar";
 import MessagesBox from "./messagesbox/MessagesBox";
@@ -12,62 +14,71 @@ let socket;
 
 const ChatPage = ({ location }) => {
 
-    const [name, setName] = useState('');
-    const [room, setRoom] = useState('');
-    const [users, setUsers] = useState('');
-    const [message, setMessage] = useState('');
-    const [messages, setMessages] = useState([]);
-    const ENDPOINT = 'http://localhost:5000';
+  const [name, setName] = useState('');
+  const [room, setRoom] = useState('');
+  const [users, setUsers] = useState('');
+  const [message, setMessage] = useState('');
+  const [messages, setMessages] = useState([]);
+  const ENDPOINT = 'http://localhost:5000';
 
-    useEffect(() => {
-        const { name, room } = queryString.parse(location.search);
-    
-        socket = io(ENDPOINT);
-    
-        setRoom(room);
-        setName(name)
-    
-        socket.emit('join', { name, room }, (error) => {
-          if(error) {
-            alert(error);
-          }
-        });
-      }, [ENDPOINT, location.search]);
+  useEffect(() => {
+    const { name, room } = queryString.parse(location.search);
 
-    useEffect(() => {
-        socket.on('message', message => {
-            console.log(message);
-            setMessages(messages => [ ...messages, message ]);
-        });
-        
-        socket.on("roomData", ({ users }) => {
-          setUsers(users);
-        });
-    }, []);
+    socket = io(ENDPOINT);
 
-    const sendMessage = (event) => {
-        event.preventDefault();
+    setRoom(room);
+    setName(name)
 
-        if(message) {
-          socket.emit('sendMessage', message, () => setMessage(''));
-        }
+    socket.emit('join', { name, room }, (error) => {
+      if (error) {
+        alert(error);
+      }
+    });
+  }, [ENDPOINT, location.search]);
+
+  useEffect(() => {
+    socket.on('message', message => {
+      console.log(message);
+      setMessages(messages => [...messages, message]);
+    });
+
+    socket.on("roomData", ({ users }) => {
+      setUsers(users);
+    });
+  }, []);
+
+  const sendMessage = (event) => {
+    event.preventDefault();
+
+    if (message) {
+      socket.emit('sendMessage', message, () => setMessage(''));
     }
+  }
 
-    return (
-        <div className="chatOuterContainer">
-          <div className="chatContainerOutline">
+  return (
+    <div className="chatOuterContainer">
+
+      <img className="logo" src={logo}></img>
+      <div className="chatContainerOutline">
         <div className="chatContainer">
-            <InfoBar room={room} />
-            <MessagesBox messages={messages} name={name} />
-            <MessageInput message={message} setMessage={setMessage} sendMessage={sendMessage} />
+          <InfoBar room={room} />
+          <MessagesBox messages={messages} name={name} />
+          <MessageInput message={message} setMessage={setMessage} sendMessage={sendMessage} />
         </div>
-        </div>
-        <div className="userList">
-            
-        </div>
-        
       </div>
-    );
+      <div className="userList">
+      </div>
+      <React.Fragment>
+        <Prompt
+          message='Are you sure you want to leave this chat room? you may not be able to come back'
+        />
+        {/* Component JSX */}
+      </React.Fragment>
+
+    </div>
+
+
+  );
 }
 
 export default ChatPage;

@@ -10,8 +10,7 @@
 .message {
   justify-content: center;
   align-content: center;
- 
-  
+
 }
 
 .messageText {
@@ -21,6 +20,8 @@
   font-size: 1.1em;
   word-wrap: break-word;
   padding-left: 5px;
+  margin: 0px;
+  font-size: 14px;
 }
 
 .messageSender{
@@ -28,8 +29,11 @@
   letter-spacing: 0;
   float: right;
   font-size: 1.1em;
-  text-align: center;
+  text-align: right;
   word-wrap: break-word;
+  margin: 0px;
+  font-size: 15px;
+  
 }
 
 
