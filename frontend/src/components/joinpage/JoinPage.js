@@ -9,7 +9,7 @@ export default function EnterChatRoom() {
   const [name, setName] = useState('');
   //const [room, setRoom] = useState('');
   const room = "DEFAULT"
-  const ENDPOINT = "http://localhost:5000";
+  const ENDPOINT = "https://stranger-shelter.herokuapp.com";
 
   useEffect(()=>{
     axios.get(ENDPOINT+"/Statistics/visitors").then(res => axios.post(ENDPOINT + "/Statistics/update", {name: 'visitors', newValue: (res.data.value+1)}).then(res => console.log(res.data)));
