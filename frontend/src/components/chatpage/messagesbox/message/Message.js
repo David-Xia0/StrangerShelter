@@ -16,8 +16,8 @@ const Message = ({ message: { text, user }, name }) => {
 
   return (
     <div className="message">
-      <p className="messageText colorWhite">{ReactEmoji.emojify(text)}</p>
-      <p className="messageSender colorWhite">{user}:</p> 
+      <p className="messageText colorWhite">: &nbsp;&nbsp;&nbsp;&nbsp; {ReactEmoji.emojify(text)}</p>
+      <p className="messageSender colorWhite">{user}</p> 
     </div>
     /*
     isSentByCurrentUser
