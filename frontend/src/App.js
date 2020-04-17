@@ -14,7 +14,6 @@ import TOS from "./components/termsofservice/TOS";
 function App() {
   return (
     <Router>
-      <Navbar />
         <Route path="/chat" component={ChatPage} />
         <Route path="/" exact component={JoinPage} />
         <Route path="/user" component={CreateUser} />
