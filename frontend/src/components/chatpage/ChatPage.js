@@ -55,11 +55,17 @@ const ChatPage = ({ location }) => {
 
     return (
         <div className="chatOuterContainer">
+          <div className="chatContainerOutline">
         <div className="chatContainer">
             <InfoBar room={room} />
             <MessagesBox messages={messages} name={name} />
             <MessageInput message={message} setMessage={setMessage} sendMessage={sendMessage} />
         </div>
+        </div>
+        <div className="userList">
+            
+        </div>
+        
       </div>
     );
 }

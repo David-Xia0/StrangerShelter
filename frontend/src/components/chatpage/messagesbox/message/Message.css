@@ -5,19 +5,29 @@
   color: white;
   display: inline-block;
   max-width: 80%;
+  flex-direction: row;
 }
 .message {
-  border: 2px solid #000000;
-  flex-direction: row;
+  flex-direction: column;
+  width: 100%;
 }
 
 .messageText {
-  width: 100%;
+  width: 80%;
   letter-spacing: 0;
-  float: left;
+  float: right;
   font-size: 1.1em;
   word-wrap: break-word;
 }
+
+.messageSender{
+  width: 15%;
+  letter-spacing: 0;
+  float: right;
+  font-size: 1.1em;
+  text-align: center;
+}
+
 
 .messageText img {
   vertical-align: middle;
