@@ -14,10 +14,10 @@ import TOS from "./components/termsofservice/TOS";
 function App() {
   return (
     <Router>
-        <Route path="/chat" component={ChatPage} />
-        <Route path="/" exact component={JoinPage} />
-        <Route path="/user" component={CreateUser} />
-        <Route path="/TOS" component={TOS}/>
+      <Route path="/chat" component={ChatPage} />
+      <Route path="/" exact component={JoinPage} />
+      <Route path="/user" component={CreateUser} />
+      <Route path="/TOS" component={TOS} />
     </Router>
   );
 }
