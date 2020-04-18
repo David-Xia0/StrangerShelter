@@ -3,6 +3,7 @@ import queryString from 'query-string';
 import io from "socket.io-client";
 import logo from '../../icons/shelterNoBackground.png';
 import { Prompt } from 'react-router'
+import { Redirect } from 'react-router-dom'
 
 import InfoBar from "./infobar/InfoBar";
 import MessagesBox from "./messagesbox/MessagesBox";
@@ -20,20 +21,33 @@ const ChatPage = ({ location }) => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const ENDPOINT = 'http://localhost:5000';
+  
+  const onWindowChange = (event) => {
+    socket.disconnect();
+    console.log("tf");
+  };
+
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
 
     socket = io(ENDPOINT);
-
+    window.addEventListener('popstate', onWindowChange);
     setRoom(room);
     setName(name)
 
     socket.emit('join', { name, room }, (error) => {
       if (error) {
         alert(error);
+        return <Redirect to='/'/>
       }
     });
+    return  () => {
+    
+      console.log("wtf");
+
+    }
+
   }, [ENDPOINT, location.search]);
 
   useEffect(() => {
@@ -54,6 +68,11 @@ const ChatPage = ({ location }) => {
       socket.emit('sendMessage', message, () => setMessage(''));
     }
   }
+
+
+ 
+
+
 
   return (
     <div className="chatOuterContainer">
