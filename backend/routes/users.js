@@ -9,8 +9,10 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
+  const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  console.log(ip);
   const username = req.body.username;
-  const ipv4 = req.body.ipv4;
+  const ipv4 = ip;
   const chatID = req.body.chatID;
 
   const newUser = new User({username, ipv4, chatID});
