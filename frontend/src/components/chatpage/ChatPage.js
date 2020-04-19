@@ -57,10 +57,12 @@ const ChatPage = ({ location }) => {
       setMessages(messages => [...messages, message]);
     });
 
-    socket.on("roomData", newUsers => {
-      console.log(newUsers.users);
-      setUsers(newUsers.users)
+    socket.on("roomData", ( { users } ) => {
       console.log(users);
+      setUsers(users);
+      //console.log(newUsers.users);
+      //setUsers(newUsers.users)
+      //console.log(users);
     });
 
     socket.on("connect_failed",function() {
