@@ -20,11 +20,11 @@ const ChatPage = ({ location }) => {
   const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
+  const [toHomePage, setToHomePage] = useState(false);
   const ENDPOINT = 'http://localhost:5000';
   
   const onWindowChange = (event) => {
     socket.disconnect();
-    console.log("tf");
   };
 
 
@@ -38,13 +38,12 @@ const ChatPage = ({ location }) => {
 
     socket.emit('join', { name, room }, (error) => {
       if (error) {
+        window.removeEventListener('popstate', onWindowChange);
         alert(error);
-        return <Redirect to='/'/>
+        setToHomePage(true);
       }
     });
     return  () => {
-    
-      console.log("wtf");
 
     }
 
@@ -69,14 +68,9 @@ const ChatPage = ({ location }) => {
     }
   }
 
-
- 
-
-
-
   return (
     <div className="chatOuterContainer">
-
+      {toHomePage ? <Redirect to="/"/> : null}
       <img className="logo" src={logo}></img>
       <div className="chatContainerOutline">
         <div className="chatContainer">
@@ -88,10 +82,7 @@ const ChatPage = ({ location }) => {
       <div className="userList">
       </div>
       <React.Fragment>
-        <Prompt
-          message='Are you sure you want to leave this chat room? you may not be able to come back'
-        />
-        {/* Component JSX */}
+        <Prompt when = {!toHomePage} message='Are you sure you want to leave this chat room? you may not be able to come back' />
       </React.Fragment>
 
     </div>

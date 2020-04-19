@@ -18,6 +18,7 @@ function App() {
       <Route path="/" exact component={JoinPage} />
       <Route path="/user" component={CreateUser} />
       <Route path="/TOS" component={TOS} />
+      <Route redner={() => <h2 className="four-o-four">Page Not Found</h2>}/>
     </Router>
   );
 }
