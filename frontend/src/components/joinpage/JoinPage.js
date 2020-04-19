@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import axios from 'axios';
 import logo from '../../icons/shelterNoBackground.png';
 
@@ -9,7 +9,9 @@ export default function EnterChatRoom() {
   const [name, setName] = useState('');
   //const [room, setRoom] = useState('');
   const room = "DEFAULT"
+  const [lockFrontPage, setLock] = useState(false); 
   const ENDPOINT = "http://localhost:5000";
+
 
   useEffect(() => {
     axios.get(ENDPOINT + "/Statistics/visitors").then(res => axios.post(ENDPOINT + "/Statistics/update", { name: 'visitors', newValue: (res.data.value + 1) }).then(res => console.log(res.data)));
@@ -29,7 +31,8 @@ export default function EnterChatRoom() {
             <input placeholder="Name" className="joinInput mt-20" type="text" onChange={(event) => setName(event.target.value)} />
           </div>
           <Link onClick={e =>
-            axios.post(ENDPOINT + "/users/add", { username: name, ipv4: "2", chatID: room }).then(res => console.log(res.data))
+            axios.post(ENDPOINT + "/users/add", { username: name, ipv4: "2", chatID: room }).then(res => console.log(res.data)).catch(err => alert("Servers Might be Down")
+            )
           }
             to={`/chat?name=${name}&room=${room}`}>
             <button className={'button mt-20'} type="submit">connect</button>

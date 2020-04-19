@@ -36,9 +36,9 @@ io.on('connection', function(socket){
 
     socket.emit('message', { user: 'Admin', text: `${user.name}, welcome to room ${user.room}.`});
     socket.broadcast.to(user.room).emit('message', { user: 'Admin', text: `${user.name} has joined!` });
-
+    console.log(user.name + "joined chat: "+ user.room);
     io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
-
+    console.log(getUsersInRoom(user.room));
     callback();
   });
 

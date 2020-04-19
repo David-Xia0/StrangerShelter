@@ -8,6 +8,7 @@ import { Redirect } from 'react-router-dom'
 import InfoBar from "./infobar/InfoBar";
 import MessagesBox from "./messagesbox/MessagesBox";
 import MessageInput from "./messageinput/MessageInput";
+import UserList from "./userlist/UserList";
 
 import './ChatPage.css';
 
@@ -17,7 +18,7 @@ const ChatPage = ({ location }) => {
 
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
-  const [users, setUsers] = useState('');
+  const [users, setUsers] = useState([]);
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const [toHomePage, setToHomePage] = useState(false);
@@ -32,6 +33,7 @@ const ChatPage = ({ location }) => {
     const { name, room } = queryString.parse(location.search);
 
     socket = io(ENDPOINT);
+
     window.addEventListener('popstate', onWindowChange);
     setRoom(room);
     setName(name)
@@ -55,9 +57,21 @@ const ChatPage = ({ location }) => {
       setMessages(messages => [...messages, message]);
     });
 
-    socket.on("roomData", ({ users }) => {
-      setUsers(users);
+    socket.on("roomData", newUsers => {
+      console.log(newUsers.users);
+      setUsers(newUsers.users)
+      console.log(users);
     });
+
+    socket.on("connect_failed",function() {
+      setToHomePage(true);
+      console.log("connection failed");
+    });
+
+    socket.on("reconnect_failed",function() {
+      setToHomePage(true);
+    });
+
   }, []);
 
   const sendMessage = (event) => {
@@ -79,8 +93,7 @@ const ChatPage = ({ location }) => {
           <MessageInput message={message} setMessage={setMessage} sendMessage={sendMessage} />
         </div>
       </div>
-      <div className="userList">
-      </div>
+      <UserList users={users}/>
       <React.Fragment>
         <Prompt when = {!toHomePage} message='Are you sure you want to leave this chat room? you may not be able to come back' />
       </React.Fragment>
