@@ -9,7 +9,6 @@ import InfoBar from "./infobar/InfoBar";
 import MessagesBox from "./messagesbox/MessagesBox";
 import MessageInput from "./messageinput/MessageInput";
 import UserList from "./userlist/UserList";
-import TextContainer from "./textcontainer/TextContainer";
 
 import './ChatPage.css';
 
