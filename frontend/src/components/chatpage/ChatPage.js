@@ -22,7 +22,7 @@ const ChatPage = ({ location }) => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const [toHomePage, setToHomePage] = useState(false);
-  const ENDPOINT = 'http://stranger-shelter.herokuapp.com';
+  const ENDPOINT = 'https://stranger-shelter.herokuapp.com';
   
   const onWindowChange = (event) => {
     socket.disconnect();
