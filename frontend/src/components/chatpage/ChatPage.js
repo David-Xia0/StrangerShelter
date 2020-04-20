@@ -66,7 +66,11 @@ const ChatPage = ({ location }) => {
       //console.log(users);
     });
 
-    socket.on("connect_failed",function() {
+    socket.on('connect_failed',function() {
+      setToHomePage(true);
+      console.log("connection failed");
+    });
+    socket.on('connect_error',function() {
       setToHomePage(true);
       console.log("connection failed");
     });
