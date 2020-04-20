@@ -9,7 +9,6 @@ import InfoBar from "./infobar/InfoBar";
 import MessagesBox from "./messagesbox/MessagesBox";
 import MessageInput from "./messageinput/MessageInput";
 import UserList from "./userlist/UserList";
-import TextContainer from "./textcontainer/TextContainer";
 
 import './ChatPage.css';
 
@@ -99,7 +98,6 @@ const ChatPage = ({ location }) => {
           <MessagesBox messages={messages} name={name} />
           <MessageInput message={message} setMessage={setMessage} sendMessage={sendMessage} />
         </div>
-        <TextContainer users={users}/>
       </div>
       <UserList users={users}/>
       <React.Fragment>
