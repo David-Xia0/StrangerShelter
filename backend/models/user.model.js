@@ -12,7 +12,7 @@ const userSchema = new Schema({
   },
   ipv4: {
     type: String,
-    required: true,
+    required: false,
     unique: false
   },
   chatID: {
