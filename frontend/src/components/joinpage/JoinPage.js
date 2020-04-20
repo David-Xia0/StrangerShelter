@@ -10,7 +10,7 @@ export default function EnterChatRoom() {
   //const [room, setRoom] = useState('');
   const room = "DEFAULT"
   const [lockFrontPage, setLock] = useState(false); 
-  const ENDPOINT = "http://stranger-shelter.herokuapp.com";
+  const ENDPOINT = "https://stranger-shelter.herokuapp.com";
 
 
   useEffect(() => {
