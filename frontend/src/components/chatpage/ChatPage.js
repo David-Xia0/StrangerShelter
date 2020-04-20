@@ -9,6 +9,7 @@ import InfoBar from "./infobar/InfoBar";
 import MessagesBox from "./messagesbox/MessagesBox";
 import MessageInput from "./messageinput/MessageInput";
 import UserList from "./userlist/UserList";
+import LoadingPage from "./loadingpage/LoadingPage";
 
 import './ChatPage.css';
 
@@ -22,6 +23,7 @@ const ChatPage = ({ location }) => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const [toHomePage, setToHomePage] = useState(false);
+  const [pageIsLoading, setPageIsLoading] = useState(true);
   const ENDPOINT = 'http://localhost:5000';
   
   const onWindowChange = (event) => {
@@ -44,6 +46,7 @@ const ChatPage = ({ location }) => {
         alert(error);
         setToHomePage(true);
       }
+      setPageIsLoading(false);
     });
     return  () => {
 
@@ -76,6 +79,7 @@ const ChatPage = ({ location }) => {
 
     socket.on("reconnect_failed",function() {
       setToHomePage(true);
+      console.log("connection failed");
     });
 
   }, []);
@@ -89,8 +93,10 @@ const ChatPage = ({ location }) => {
   }
 
   return (
-    <div className="chatOuterContainer">
+    <div>
       {toHomePage ? <Redirect to="/"/> : null}
+      {pageIsLoading? <div><LoadingPage/></div> : 
+      <div className="chatOuterContainer">
       <img className="logo" src={logo}></img>
       <div className="chatContainerOutline">
         <div className="chatContainer">
@@ -103,7 +109,8 @@ const ChatPage = ({ location }) => {
       <React.Fragment>
         <Prompt when = {!toHomePage} message='Are you sure you want to leave this chat room? you may not be able to come back' />
       </React.Fragment>
-
+      </div>
+    }
     </div>
 
 

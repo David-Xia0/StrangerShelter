@@ -44,7 +44,7 @@
 
 .innerBox {
     height: 500px;
-    width: 300px;
+    width: 250px;
     padding-left: 5px;
     padding-top: 10px;
     background-color: rgb(32,32,36);
@@ -56,7 +56,7 @@
     justify-content: center;
     flex-direction: column;
     height: 510px;
-    width: 310px;
+    width: 260px;
     display: flex;
     padding-left: 5px;
     border-radius: 10px;
@@ -68,4 +68,5 @@
     height: 520px;
     width: 350px;
     padding-left: 10px;
+    justify-content: center;
 }

@@ -31,7 +31,7 @@ export default function EnterChatRoom() {
             <input placeholder="Name" className="joinInput mt-20" type="text" onChange={(event) => setName(event.target.value)} />
           </div>
           <Link onClick={e =>
-            axios.post(ENDPOINT + "/users/add", { username: name, ipv4: "2", chatID: room }).then(res => console.log(res.data)).catch(err => alert("Servers Might be Down")
+            axios.post(ENDPOINT + "/users/add", { username: name, chatID: room }).then(res => console.log(res.data)).catch(err => alert("Servers Might be Down")
             )
           }
             to={`/chat?name=${name}&room=${room}`}>

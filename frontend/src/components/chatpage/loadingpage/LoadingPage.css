@@ -1,0 +1,26 @@
+.loadingPageOuterBox{
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.loadingLogo{
+    animation: rotation 10s infinite linear;
+}
+
+.loadingText{
+    color: whitesmoke;
+    font-size: 50px;
+    justify-content: center;
+    text-align: center;
+}
+
+@keyframes rotation{
+    from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(359deg);
+      }
+}
