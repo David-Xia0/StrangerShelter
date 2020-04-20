@@ -99,7 +99,6 @@ const ChatPage = ({ location }) => {
           <MessagesBox messages={messages} name={name} />
           <MessageInput message={message} setMessage={setMessage} sendMessage={sendMessage} />
         </div>
-        <TextContainer users={users}/>
       </div>
       <UserList users={users}/>
       <React.Fragment>
