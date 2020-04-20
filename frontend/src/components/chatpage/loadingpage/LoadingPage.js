@@ -4,15 +4,17 @@ import logo from '../../../icons/shelterNoBackground.png';
 
 import "./LoadingPage.css"
 
-const LoadingPage = () =>{
+const LoadingPage = () => {
 
 
-return(
-    <div className="loadingPageOuterBox">
-        <img className="loadingLogo" src={logo}/>
-        <h1 className="loadingText">Loading ...</h1>
-    </div>
-)
+    return (
+        <div className="loadingPageOuterBox">
+            <div className="loadingLogoContainer">
+                <img className="loadingLogo" src={logo} />
+            </div>
+            <h1 className="loadingText">Loading ...</h1>
+        </div>
+    )
 }
 
 export default LoadingPage;

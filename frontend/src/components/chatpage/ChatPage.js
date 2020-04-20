@@ -94,7 +94,7 @@ const ChatPage = ({ location }) => {
 
   return (
     <div>
-      {toHomePage ? <Redirect to="/"/> : null}
+
       {pageIsLoading? <div><LoadingPage/></div> : 
       <div className="chatOuterContainer">
       <img className="logo" src={logo}></img>
