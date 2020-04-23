@@ -24,7 +24,14 @@ const ChatPage = ({ location }) => {
   const [messages, setMessages] = useState([]);
   const [toHomePage, setToHomePage] = useState(false);
   const [pageIsLoading, setPageIsLoading] = useState(true);
-  const ENDPOINT = 'http://localhost:5000';
+  var ENDPOINT;
+  if(process.env.NODE_ENV === 'development') {
+    ENDPOINT = 'http://localhost:5000';
+  }
+  
+  if(process.env.NODE_ENV === 'production') {
+    ENDPOINT = process.env.REACT_APP_API_URI;
+  }
   
   const onWindowChange = (event) => {
     socket.disconnect();
