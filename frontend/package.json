@@ -10,6 +10,7 @@
     "bootstrap": "^4.4.1",
     "react": "^16.13.1",
     "react-datepicker": "^2.14.1",
+    "react-device-detect": "^1.11.14",
     "react-dom": "^16.13.1",
     "react-emoji": "^0.5.0",
     "react-router-dom": "^5.1.2",

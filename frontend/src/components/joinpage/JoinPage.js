@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from 'axios';
 import logo from '../../icons/shelterNoBackground.png';
+import { BrowserView, MobileView } from "react-device-detect";
+
 
 import './JoinPage.css';
 
 export default function EnterChatRoom() {
   const [name, setName] = useState('');
-  //const [room, setRoom] = useState('');
   const room = "DEFAULT"
   const [lockFrontPage, setLock] = useState(false); 
   var ENDPOINT;
@@ -18,7 +19,6 @@ export default function EnterChatRoom() {
   if(process.env.NODE_ENV === 'production') {
     ENDPOINT = process.env.REACT_APP_API_URI;
   }
-
 
   useEffect(() => {
     axios.get(ENDPOINT + "/Statistics/visitors").then(res => axios.post(ENDPOINT + "/Statistics/update", { name: 'visitors', newValue: (res.data.value + 1) }).then(res => console.log(res.data)));
@@ -35,12 +35,13 @@ export default function EnterChatRoom() {
         <div className="joinInnerContainer">
           <h1 className="heading">Please enter a display name below</h1>
           <div>
-            <input placeholder="Name" className="joinInput mt-20" type="text" onChange={(event) => setName(event.target.value)} />
+            <input placeholder="Name" className="joinInput mt-20" type="text" onChange={(event) => setName(event.target.value.trim())} />
           </div>
           <Link onClick={e =>
             axios.post(ENDPOINT + "/users/add", { username: name, chatID: room }).then(res => console.log(res.data)).catch(err => alert("Servers Might be Down")
             )
           }
+
             to={`/chat?name=${name}&room=${room}`}>
             <button className={'button mt-20'} type="submit">connect</button>
           </Link>

@@ -70,9 +70,6 @@ const ChatPage = ({ location }) => {
     socket.on("roomData", ( { users } ) => {
       console.log(users);
       setUsers(users);
-      //console.log(newUsers.users);
-      //setUsers(newUsers.users)
-      //console.log(users);
     });
 
     socket.on('connect_failed',function() {
@@ -101,7 +98,7 @@ const ChatPage = ({ location }) => {
 
   return (
     <div>
-
+      {toHomePage?<Redirect to='/'/>:null}
       {pageIsLoading? <div><LoadingPage/></div> : 
       <div className="chatOuterContainer">
       <img className="logo" src={logo}></img>
@@ -119,8 +116,6 @@ const ChatPage = ({ location }) => {
       </div>
     }
     </div>
-
-
   );
 }
 
