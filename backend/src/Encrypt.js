@@ -8,7 +8,7 @@ function encryptMessage(message) {
     encrypted += key.final('hex');
     console.log(encrypted);
     return encrypted;
-}
+};
 
 function decryptMessage(message) {
     var key = crypto.createDecipher(algorithm, password);
@@ -16,6 +16,6 @@ function decryptMessage(message) {
     decrypted += key.final('hex');
     console.log(decrypted);
     return decrypted;
-}
+};
 
-
+module.exports = {encryptMessage, decryptMessage};

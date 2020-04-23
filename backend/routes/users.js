@@ -1,5 +1,6 @@
 const router = require('express').Router();
 let User = require('../models/user.model');
+const {encryptMessage} = require('../src/Encrypt');
 
 router.route('/').get((req, res) => {
   User.find()
@@ -8,10 +9,10 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-  //const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-  const username = req.body.username;
-  const ipv4 = " ";
-  const chatID = req.body.chatID;
+  const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  const username = encryptMessage(req.body.username);
+  const ipv4 = encryptMessage(ip);
+  const chatID = encryptMessage(req.body.chatID);
 
   const newUser = new User({username, ipv4, chatID});
 
