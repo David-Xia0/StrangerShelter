@@ -1,17 +1,5 @@
-
 const router = require('express').Router();
-const crypto = require('crypto');
-const salt = "123";
-const algorithm = "aes-128-cbc";
 let User = require('../models/user.model');
-
-function encryptMessage(message) {
-  var key = crypto.createCipher(algorithm, salt);
-  var encrypted = key.update(message, 'utf8', 'hex');
-  encrypted += key.final('hex');
-  console.log(encrypted);
-  return encrypted;
-}
 
 router.route('/').get((req, res) => {
   User.find()
