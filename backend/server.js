@@ -32,7 +32,7 @@ io.on('connection', function (socket) {
     var r = getUsersInRoom(roomNumber);
     console.log("here");
     while (true) {
-      if (r.length > 1) {
+      if (r.length > 3) {
         roomNumber++;
         r = getUsersInRoom(roomNumber);
       } else {
