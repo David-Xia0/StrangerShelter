@@ -101,7 +101,10 @@ const ChatPage = ({ location }) => {
       {toHomePage?<Redirect to='/'/>:null}
       {pageIsLoading? <div><LoadingPage/></div> : 
       <div className="chatOuterContainer">
+      <div className="verticalContainer">
       <img className="logo" src={logo}></img>
+      <UserList users={users}/>
+      </div>
       <div className="chatContainerOutline">
         <div className="chatContainer">
           <InfoBar room={room} />
@@ -109,7 +112,7 @@ const ChatPage = ({ location }) => {
           <MessageInput message={message} setMessage={setMessage} sendMessage={sendMessage} />
         </div>
       </div>
-      <UserList users={users}/>
+     
       <React.Fragment>
         <Prompt when = {!toHomePage} message='Are you sure you want to leave this chat room? you may not be able to come back' />
       </React.Fragment>

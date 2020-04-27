@@ -6,7 +6,7 @@ import onlineIcon from '../../../icons/onlineIcon.png';
 import './UserList.css';
 
 const UserList = ({ users }) => (
-<div className="outerBox">
+
   <div className="innerBoxOutline">
     <div className="innerBox">
       <h1 className="userTitle">People currently chatting:</h1>
@@ -30,8 +30,6 @@ const UserList = ({ users }) => (
       }
     </div>
   </div>
-  </div>
-
 );
 
 export default UserList;
