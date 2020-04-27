@@ -29,7 +29,7 @@ export default function EnterChatRoom() {
   return (
     <div className="joinOuterContainer">
       <img className="logo" src={logo} />
-      <h1 className="title">Welcome to the coronavirus shelter!</h1>
+      <h1 className="title">Welcome to Stranger Shelter!</h1>
       <h1 className="titleDescription"> come talk to new people and make new friends </h1>
       <div className="joinHorizontalContainer">
         <div className="joinInnerContainer">
@@ -55,7 +55,7 @@ export default function EnterChatRoom() {
           <h1 className="heading"> Rules:  </h1>
           <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;No racism, homophobia, sexism.</li>
           <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;No catfishing, scaming, phishing.</li>
-          <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;Be nice to everyone and welcome all strangers.</li>
+          <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;Please be nice and welcoming to everyone.</li>
           <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;please choose an aporpriate name.</li>
         </div>
       </div>
