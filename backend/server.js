@@ -30,7 +30,6 @@ io.on('connection', function (socket) {
   socket.on('join', ({ name, room }, callback) => {
     var roomNumber = 1;
     var r = getUsersInRoom(roomNumber);
-    console.log("here");
     while (true) {
       if (r.length > 3) {
         roomNumber++;
@@ -39,6 +38,7 @@ io.on('connection', function (socket) {
         break;
       }
     }
+    
     const { error, user } = addUser({ id: socket.id, name, room: roomNumber });
 
     if (error) return callback(error);

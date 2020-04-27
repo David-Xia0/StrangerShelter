@@ -4,19 +4,25 @@
   "icons": [
     {
       "src": "house16.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "house192.ico",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "house32.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "house64.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
     },
     {
       "src": "house256.ico",
-      "type": "image/png",
-      "sizes": "256x256"
+      "sizes": "256x256",
+      "type": "image/x-icon"
     }
+
   ],
   "start_url": ".",
   "display": "standalone",
