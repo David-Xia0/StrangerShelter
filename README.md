@@ -1,1 +1,2 @@
-"# Coronavirus Shelter Chat" 
+# Coronavirus Shelter Chat
+https://www.strangershelter.com/
