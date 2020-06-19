@@ -41,6 +41,7 @@ html, body {
   margin: 0;
   height: 100%;
   background: rgb(32, 32, 36);
+  text-align: center;
 }
 
 .heading {
