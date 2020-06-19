@@ -28,29 +28,37 @@ export default function EnterChatRoom() {
 
 
   return (
-    <Container>
-      <Row>
-       <img className="logo" src={logo} />
-       <h1 className="title">Welcome to Stranger Shelter!</h1>
-       <h3 className="titleDescription"> come talk to new people and make new friends </h3>
-      </Row>
-      <Row>
-        <h2 className="heading">Please enter a display name below</h2>
-      </Row>
+    <Container className="titleRow" style={{textAlign: "center"}}>
       <Row>
         <Col>
-          <input placeholder="Name" className="joinInput mt-20" type="text" onChange={(event) => setName(event.target.value.trim())} />
+        <img className="logo" src={logo} />
         </Col>
         <Col>
+        <h1 className="title">Welcome to Stranger Shelter!</h1>
+        <h3 className="titleDescription"> come talk to new people and make new friends </h3>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <h2 className="heading">Please enter a display name below</h2>
+          <input placeholder="Name" className="joinInput mt-20" type="text" onChange={(event) => setName(event.target.value.trim())} />
           <button className={'button mt-20'} type="submit">connect</button>
         </Col>
+        <Col>
+        <div className="rulesBox">
+          <h1 className="heading"> Rules:  </h1>
+          <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;No racism, homophobia, sexism.</li>
+          <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;No catfishing, scaming, phishing.</li>
+          <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;Please be nice and welcoming to everyone.</li>
+          <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;please choose an aporpriate name.</li>
+
+          <h1 className="rulesText"> By using our service you agree with to our terms of service and privacey policy</h1>
+        </div>
+        </Col>
       </Row>
       <Row>
-        <h1 className="rulesText"> By using our service you agree with to our terms of service and privacey policy</h1>
+
       </Row>
-      <row>
-        
-      </row>
 
     </Container>
     // <div className="joinOuterContainer">
@@ -77,13 +85,13 @@ export default function EnterChatRoom() {
     //         <h1 className="termsOfService"> TOS and PP</h1>
     //       </Link>
     //     </div>
-    //     <div className="rulesBox">
-    //       <h1 className="heading"> Rules:  </h1>
-    //       <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;No racism, homophobia, sexism.</li>
-    //       <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;No catfishing, scaming, phishing.</li>
-    //       <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;Please be nice and welcoming to everyone.</li>
-    //       <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;please choose an aporpriate name.</li>
-    //     </div>
+        // <div className="rulesBox">
+        //   <h1 className="heading"> Rules:  </h1>
+        //   <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;No racism, homophobia, sexism.</li>
+        //   <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;No catfishing, scaming, phishing.</li>
+        //   <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;Please be nice and welcoming to everyone.</li>
+        //   <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;please choose an aporpriate name.</li>
+        // </div>
     //   </div>
     // </div>
   );

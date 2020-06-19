@@ -85,6 +85,7 @@ html, body {
 .logo{
   max-height: 300px;
   max-width: 300px;
+  margin: 0% 15%;
 }
 
 
@@ -105,9 +106,13 @@ html, body {
 
 .title {
   color: whitesmoke;
-  font-size: 6em;
+  font-size: 4em;
   padding-top: 1px;
   padding-bottom: 10px;
+}
+
+.titleRow {
+  margin-top: 5%;
 }
 
 
