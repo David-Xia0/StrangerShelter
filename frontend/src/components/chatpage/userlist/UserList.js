@@ -4,31 +4,27 @@ import ScrollToBottom from 'react-scroll-to-bottom';
 import onlineIcon from '../../../icons/onlineIcon.png';
 
 import './UserList.css';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const UserList = ({ users }) => (
-
-  <div className="innerBoxOutline">
-    <div className="innerBox">
-      <h1 className="userTitle">People currently chatting:</h1>
-      {
-        users
-          ? (
-            <div>
-              <div className="activeContainer">
-                <h2 className="userText">
-                  {users.map(({ name }) => (
-                    <div key={name} className="activeItem">
-                      {name}
-                      <img alt="Online Icon" src={onlineIcon} />
-                    </div>
-                  ))}
-                </h2>
-              </div>
-            </div>
-          )
-          : null
-      }
-    </div>
+<div className="userListBorder">
+  <Container>
+    <h1 className="userListTitle">People currently chatting:</h1>
+    {
+      users
+        ? (
+          <Col className="userListUserContainer">
+              {users.map(({ name }) => (
+                <Row key={name} className="userListText">
+                  {name}
+                  <img className="userListOnlineIcon" alt="Online Icon" src={onlineIcon} />
+                </Row>
+              ))}
+          </Col>
+        )
+        : null
+    }
+  </Container>
   </div>
 );
 

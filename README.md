@@ -1,2 +1,3 @@
-# Coronavirus Shelter Chat
+# Stranger Shelter Chat
 https://www.strangershelter.com/
+

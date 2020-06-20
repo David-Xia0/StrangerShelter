@@ -4,6 +4,7 @@ import io from "socket.io-client";
 import logo from '../../icons/shelterNoBackground.png';
 import { Prompt } from 'react-router'
 import { Redirect } from 'react-router-dom'
+import { Container, Row, Col } from 'react-bootstrap';
 
 import InfoBar from "./infobar/InfoBar";
 import MessagesBox from "./messagesbox/MessagesBox";
@@ -97,28 +98,27 @@ const ChatPage = ({ location }) => {
   }
 
   return (
-    <div>
+    <Container>
       {toHomePage?<Redirect to='/'/>:null}
-      {pageIsLoading? <div><LoadingPage/></div> : 
-      <div className="chatOuterContainer">
-      <div className="verticalContainer">
+      {pageIsLoading? <Container><LoadingPage/></Container>: 
+      <Container>
+        <Row>
+      <Col className="verticalContainer">
       <img className="logo" src={logo}></img>
       <UserList users={users}/>
-      </div>
-      <div className="chatContainerOutline">
+      </Col>
         <div className="chatContainer">
           <InfoBar room={room} />
           <MessagesBox messages={messages} name={name} />
           <MessageInput message={message} setMessage={setMessage} sendMessage={sendMessage} />
         </div>
-      </div>
-     
+     </Row>
       <React.Fragment>
         <Prompt when = {!toHomePage} message='Are you sure you want to leave this chat room? you may not be able to come back' />
       </React.Fragment>
-      </div>
+      </Container>
     }
-    </div>
+    </Container>
   );
 }
 

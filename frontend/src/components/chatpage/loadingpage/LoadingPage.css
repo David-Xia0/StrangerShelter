@@ -1,29 +1,13 @@
-.loadingPageOuterBox{
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    flex-direction: column;
-}
 
-.loadingLogo{
+.loadingPageLogo{
     animation: rotation 10s infinite linear;
     justify-content: center;
 }
 
-.loadingLogoContainer{
-    justify-content: center;
-    width: 100%;
-    align-items: center;
-    align-content: center;
-    flex-direction: column;
-    padding-left: 25%;
-}
-
-.loadingText{
+.loadingPageText{
     color: whitesmoke;
     font-size: 50px;
-    justify-content: center;
-    text-align: center;
+    align-self: center;
 }
 
 @keyframes rotation{

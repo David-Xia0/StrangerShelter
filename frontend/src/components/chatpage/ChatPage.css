@@ -14,19 +14,11 @@
   border-radius: 8px;
   height: 700px;
   width: 700px;
+  border-width: 5px;
+  border-color: white;
+  border-style: solid;
 }
 
-.chatContainerOutline {
-  height: 710px;
-  width: 710px;
-  background-color: antiquewhite;
-  justify-content: center;
-  flex-direction: column;
-  display: flex;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-radius: 10px;
-}
 
 .logo {
   height: 300px;
