@@ -1,8 +1,8 @@
-.chatOuterContainer {
+.chatPageOuterContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  flex-direction: row;
   background-color: rgb(32, 32, 36);
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './Message.css';
-
+import { Container, Row, Col } from 'react-bootstrap';
 import ReactEmoji from 'react-emoji';
 
 const Message = ({ message: { text, user }, name }) => {
@@ -15,10 +15,10 @@ const Message = ({ message: { text, user }, name }) => {
   }
 
   return (
-    <div className="message">
+    <Col className="message">
       <p className="messageText colorWhite">: &nbsp; {ReactEmoji.emojify(text)}</p>
       <p className="messageSender colorWhite">{user}</p> 
-    </div>
+    </Col>
     /*
     isSentByCurrentUser
       ? (
