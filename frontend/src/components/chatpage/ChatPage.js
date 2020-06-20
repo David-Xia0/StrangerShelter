@@ -99,7 +99,7 @@ const ChatPage = ({ location }) => {
 
   return (
     <Container >
-      {toHomePage ? <Redirect to='/' /> : null}
+      {toHomePage && <Redirect to='/' />}
       {pageIsLoading ? <Container><LoadingPage /></Container> :
         <Container className="chatPageOuterContainer">
           <Row>
