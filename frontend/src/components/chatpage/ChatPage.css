@@ -9,20 +9,21 @@
 .chatContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background: rgb(32, 32, 36);
   border-radius: 8px;
   height: 700px;
-  width: 700px;
+  width: 800px;
+  padding-left: 0px;
+  padding-right: 0px;
   border-width: 5px;
   border-color: white;
   border-style: solid;
 }
 
 
-.logo {
+.chatPageSSlogo {
   height: 300px;
   width: 300px;
+  align-self: center;
 }
 
 .userList {
@@ -33,8 +34,8 @@
 
 .verticalContainer{
   flex-direction: column;
-  width: 300px;
   height: 700px;
+  max-width: 30%;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {

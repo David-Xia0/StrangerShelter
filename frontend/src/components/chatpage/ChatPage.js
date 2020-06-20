@@ -26,14 +26,14 @@ const ChatPage = ({ location }) => {
   const [toHomePage, setToHomePage] = useState(false);
   const [pageIsLoading, setPageIsLoading] = useState(true);
   var ENDPOINT;
-  if(process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === 'development') {
     ENDPOINT = 'http://localhost:5000';
   }
-  
-  if(process.env.NODE_ENV === 'production') {
+
+  if (process.env.NODE_ENV === 'production') {
     ENDPOINT = process.env.REACT_APP_API_URI;
   }
-  
+
   const onWindowChange = (event) => {
     socket.disconnect();
   };
@@ -56,7 +56,7 @@ const ChatPage = ({ location }) => {
       }
       setPageIsLoading(false);
     });
-    return  () => {
+    return () => {
 
     }
 
@@ -68,21 +68,21 @@ const ChatPage = ({ location }) => {
       setMessages(messages => [...messages, message]);
     });
 
-    socket.on("roomData", ( { users } ) => {
+    socket.on("roomData", ({ users }) => {
       console.log(users);
       setUsers(users);
     });
 
-    socket.on('connect_failed',function() {
+    socket.on('connect_failed', function () {
       setToHomePage(true);
       console.log("connection failed");
     });
-    socket.on('connect_error',function() {
+    socket.on('connect_error', function () {
       setToHomePage(true);
       console.log("connection failed");
     });
 
-    socket.on("reconnect_failed",function() {
+    socket.on("reconnect_failed", function () {
       setToHomePage(true);
       console.log("connection failed");
     });
@@ -99,25 +99,25 @@ const ChatPage = ({ location }) => {
 
   return (
     <Container>
-      {toHomePage?<Redirect to='/'/>:null}
-      {pageIsLoading? <Container><LoadingPage/></Container>: 
-      <Container>
-        <Row>
-      <Col className="verticalContainer">
-      <img className="logo" src={logo}></img>
-      <UserList users={users}/>
-      </Col>
-        <div className="chatContainer">
-          <InfoBar room={room} />
-          <MessagesBox messages={messages} name={name} />
-          <MessageInput message={message} setMessage={setMessage} sendMessage={sendMessage} />
-        </div>
-     </Row>
-      <React.Fragment>
-        <Prompt when = {!toHomePage} message='Are you sure you want to leave this chat room? you may not be able to come back' />
-      </React.Fragment>
-      </Container>
-    }
+      {toHomePage ? <Redirect to='/' /> : null}
+      {pageIsLoading ? <Container><LoadingPage /></Container> :
+        <Container>
+          <Row>
+            <Col className="verticalContainer">
+              <img className="chatPageSSlogo" src={logo}></img>
+              <UserList users={users} />
+            </Col >
+            <Col className="chatContainer">
+              <InfoBar room={room} />
+              <MessagesBox messages={messages} name={name} />
+              <MessageInput message={message} setMessage={setMessage} sendMessage={sendMessage} />
+            </Col>
+          </Row>
+          <React.Fragment>
+            <Prompt when={!toHomePage} message='Are you sure you want to leave this chat room? you may not be able to come back' />
+          </React.Fragment>
+        </Container>
+      }
     </Container>
   );
 }

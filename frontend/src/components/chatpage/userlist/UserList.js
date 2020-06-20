@@ -7,8 +7,8 @@ import './UserList.css';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const UserList = ({ users }) => (
-<div className="userListBorder">
-  <Container>
+
+  <Container className="userListBorder">
     <h1 className="userListTitle">People currently chatting:</h1>
     {
       users
@@ -25,7 +25,6 @@ const UserList = ({ users }) => (
         : null
     }
   </Container>
-  </div>
 );
 
 export default UserList;
