@@ -102,11 +102,11 @@ const ChatPage = ({ location }) => {
       {toHomePage ? <Redirect to='/' /> : null}
       {pageIsLoading ? <Container><LoadingPage /></Container> :
         <Container className="chatPageOuterContainer">
-            <Col className="verticalContainer">
+            <Col className="chatPageVerticalContainer">
               <img className="chatPageSSlogo" src={logo}></img>
               <UserList users={users} />
-            </Col >
-            <Col className="chatContainer">
+            </Col>
+            <Col className="chatPageChatContainer">
               <InfoBar room={room} />
               <MessagesBox messages={messages} name={name} />
               <MessageInput message={message} setMessage={setMessage} sendMessage={sendMessage} />

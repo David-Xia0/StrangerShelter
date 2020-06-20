@@ -28,42 +28,39 @@ export default function EnterChatRoom() {
 
 
   return (
-    <Container className="titleRow" style={{ textAlign: "center" }}>
+    <Container className="joinPageTitleRow" style={{ textAlign: "center" }}>
       <Row>
         <Col>
-          <img className="logo" src={logo} />
+          <img className="joinPageLogo" src={logo} />
         </Col>
         <Col>
-          <h1 className="title">Welcome to Stranger Shelter!</h1>
-          <h3 className="titleDescription"> come talk to new people and make new friends </h3>
+          <h1 className="joinPageTitle">Welcome to Stranger Shelter!</h1>
+          <h3 className="joinPageTitleDescription"> come talk to new people and make new friends </h3>
         </Col>
       </Row>
       <Row>
         <Col>
-          <h2 className="heading">Please enter a display name below</h2>
-          <input placeholder="Name" className="joinInput mt-20" type="text" onChange={(event) => setName(event.target.value.trim())} />
+          <h2 className="joinPageHeading">Please enter a display name below</h2>
+          <input placeholder="Name" className="joinPageInput mt-20" type="text" onChange={(event) => setName(event.target.value.trim())} />
           <Link onClick={e =>
             axios.post(ENDPOINT + "/users/add", { username: name, chatID: room }).then(res => console.log(res.data)).catch(err => alert("Servers Might be Down")
             )
           }
-
             to={`/chat?name=${name}&room=${room}`}>
-            <button className={'button mt-20'} type="submit">connect</button>
+            <button className={'joinPageButton mt-20'} type="submit">connect</button>
           </Link>
         </Col>
-        <Col>
-          <div className="rulesBox">
-            <h1 className="heading"> Rules:  </h1>
-            <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;No racism, homophobia, sexism.</li>
-            <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;No catfishing, scaming, phishing.</li>
-            <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;Please be nice and welcoming to everyone.</li>
-            <li className="rulesText"> &nbsp;&nbsp;&nbsp;&nbsp;please choose an aporpriate name.</li>
+        <Col className="joinPageRulesBox">
+            <h1 className="joinPageRulesText">Rules:</h1>
+            <li className="joinPageRulesText"> &nbsp;&nbsp;&nbsp;&nbsp;No racism, homophobia, sexism.</li>
+            <li className="joinPageRulesText"> &nbsp;&nbsp;&nbsp;&nbsp;No catfishing, scaming, phishing.</li>
+            <li className="joinPageRulesText"> &nbsp;&nbsp;&nbsp;&nbsp;Please be nice and welcoming to everyone.</li>
+            <li className="joinPageRulesText"> &nbsp;&nbsp;&nbsp;&nbsp;please choose an aporpriate name.</li>
             <h1></h1>
-            <h1 className="rulesText"> By using our service you agree with to our terms of service and privacy policy</h1>
+            <h1 className="joinPageRulesText"> By using our service you agree with to our terms of service and privacy policy</h1>
             <Link to={`/TOS`} target="_blank" >
               <h1 className="termsOfService"> TOS and PP</h1>
             </Link>
-          </div>
         </Col>
       </Row>
     </Container>

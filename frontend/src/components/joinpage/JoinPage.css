@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-.button {
+.joinPageButton {
   color: #fff !important;
   text-transform: uppercase;
   text-decoration: none;
@@ -19,7 +19,7 @@
   width: 100%;
 }
 
-.button:hover {
+.joinPageButton:hover {
   color: #fff !important;
   text-transform: uppercase;
   text-decoration: none;
@@ -31,7 +31,7 @@
   width: 100%
 }
 
-button:focus {
+.joinPageButton:focus {
   outline: 1;
 }
 
@@ -44,74 +44,48 @@ html, body {
   text-align: center;
 }
 
-.heading {
+.joinPageHeading {
   color: white;
   font-size: 2em;
   padding-bottom: 10px;
   border-bottom: 2px solid white;
 }
 
-.joinOuterContainer {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  height: 100%;
-  align-items: center;
-  background-color: rgb(32, 32, 36);
-  
-
-}
-
-.joinInnerContainer {
-  width: 30%;
-  padding-right: 20px;
-}
-
-.joinHorizontalContainer {
-  display: flex;
-  width: 78%;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.joinInput {
+.joinPageInput {
   border-radius: 0;
   padding: 15px 20px;
   width: 100%;
 }
 
-.logo{
+.joinPageLogo{
   max-height: 300px;
   max-width: 300px;
   margin: 0% 15%;
 }
 
-
 .mt-20 {
   margin-top: 20px;
 }
 
-.rulesBox {
+.joinPageRulesBox {
   width: 600px;
   padding-left: 100px;
   text-align: left;
 }
 
-.rulesText {
+.joinPageRulesText {
   color: whitesmoke;
   font-size: 1em;
 }
 
-.title {
+.joinPageTitle {
   color: whitesmoke;
   font-size: 4em;
   padding-top: 1px;
   padding-bottom: 10px;
 }
 
-.titleRow {
+.joinPageTitleRow {
   margin-top: 5%;
 }
 
@@ -121,7 +95,7 @@ html, body {
 }
 
 
-.titleDescription {
+.joinPageTitleDescription {
   color: whitesmoke;
   font-size: 3em;
   padding-top: 1px;
