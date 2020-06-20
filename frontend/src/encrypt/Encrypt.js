@@ -18,4 +18,4 @@ function decryptMessage(message) {
     return decrypted;
 };
 
-module.exports = {encryptMessage, decryptMessage};
+exports = {encryptMessage, decryptMessage};
