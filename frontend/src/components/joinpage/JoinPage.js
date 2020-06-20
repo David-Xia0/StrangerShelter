@@ -39,7 +39,7 @@ export default function EnterChatRoom() {
         </Col>
       </Row>
       <Row>
-        <Col>
+        <Col lg={6}>
           <h2 className="joinPageHeading">Please enter a display name below</h2>
           <input placeholder="Name" className="joinPageInput mt-20" type="text" onChange={(event) => setName(event.target.value.trim())} />
           <Link onClick={e =>
@@ -50,7 +50,7 @@ export default function EnterChatRoom() {
             <button className={'joinPageButton mt-20'} type="submit">connect</button>
           </Link>
         </Col>
-        <Col className="joinPageRulesBox">
+        <Col lg={6} className="joinPageRulesBox">
             <h1 className="joinPageRulesText">Rules:</h1>
             <li className="joinPageRulesText"> &nbsp;&nbsp;&nbsp;&nbsp;No racism, homophobia, sexism.</li>
             <li className="joinPageRulesText"> &nbsp;&nbsp;&nbsp;&nbsp;No catfishing, scaming, phishing.</li>
