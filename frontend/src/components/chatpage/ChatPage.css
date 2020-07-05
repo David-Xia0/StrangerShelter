@@ -3,7 +3,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  background-color: rgb(32, 32, 36);
+  background-color: #202024;
+  margin-top: 5rem;;
 }
 
 .chatPageChatContainer {
@@ -15,7 +16,7 @@
   padding-left: 0px;
   padding-right: 0px;
   border-width: 5px;
-  border-color: white;
+  border-color: #404047;
   border-style: solid;
 }
 
