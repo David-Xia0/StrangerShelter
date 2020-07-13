@@ -39,6 +39,7 @@ const ChatPage = ({ location }) => {
   };
 
 
+  //Initialises connection and joins user the a room
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
 

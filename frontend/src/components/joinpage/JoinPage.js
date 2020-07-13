@@ -53,9 +53,9 @@ export default function EnterChatRoom() {
         <Col lg={6} className="joinPageRulesBox">
             <h1 className="joinPageRulesText">Rules:</h1>
             <li className="joinPageRulesText"> &nbsp;&nbsp;&nbsp;&nbsp;No racism, homophobia, sexism.</li>
-            <li className="joinPageRulesText"> &nbsp;&nbsp;&nbsp;&nbsp;No catfishing, scaming, phishing.</li>
+            <li className="joinPageRulesText"> &nbsp;&nbsp;&nbsp;&nbsp;No catfishing, scamming, phishing.</li>
             <li className="joinPageRulesText"> &nbsp;&nbsp;&nbsp;&nbsp;Please be nice and welcoming to everyone.</li>
-            <li className="joinPageRulesText"> &nbsp;&nbsp;&nbsp;&nbsp;please choose an aporpriate name.</li>
+            <li className="joinPageRulesText"> &nbsp;&nbsp;&nbsp;&nbsp;Please choose an apropriate name.</li>
             <h1></h1>
             <h1 className="joinPageRulesText"> By using our service you agree with to our terms of service and privacy policy</h1>
             <Link to={`/TOS`} target="_blank" >
